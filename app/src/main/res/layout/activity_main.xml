@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="myName"
+                  type="com.ntetz.android.aboutme.MyName"/>
+    </data>
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -8,12 +13,13 @@
             android:paddingStart="@dimen/padding"
             android:paddingEnd="@dimen/padding">
 
+        <!-- TODO: テキスト表示用の不要な変数が残ってしまっているはず。 -->
         <TextView
                 android:id="@+id/name_text"
                 style="@style/NameStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/name"
+                android:text="@={myName.name}"
                 android:textAlignment="center"/>
 
         <EditText
@@ -34,13 +40,15 @@
                 android:fontFamily="@font/roboto"
                 android:text="@string/done"/>
 
+        <!-- TODO: テキスト表示用の不要な変数が残ってしまっているはず。 -->
         <TextView
                 android:id="@+id/nickname_text"
                 style="@style/NameStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                android:text="@={myName.nickname}"/>
 
         <ImageView
                 android:id="@+id/star_image"
