@@ -3,7 +3,8 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent" android:paddingStart="@dimen/padding"
+              android:paddingEnd="@dimen/padding">
 
     <TextView
             android:text="@string/name"
@@ -20,4 +21,14 @@
             android:id="@+id/star_image"
             android:contentDescription="@string/yellow_star"
             android:layout_marginTop="@dimen/layout_margin"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:text="@string/bio"
+                android:layout_width="match_parent"
+                android:lineSpacingMultiplier="1.2"
+                android:layout_height="wrap_content"
+                android:id="@+id/bio_text" style="@style/NameStyle"/>
+    </ScrollView>
 </LinearLayout>
