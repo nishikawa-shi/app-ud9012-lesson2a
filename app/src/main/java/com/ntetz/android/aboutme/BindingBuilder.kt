@@ -1,5 +1,6 @@
 package com.ntetz.android.aboutme
 
 interface BindingBuilder {
-    fun initialize()
+    fun bindText()
+    fun bindAction()
 }

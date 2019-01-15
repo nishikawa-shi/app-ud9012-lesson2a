@@ -8,15 +8,20 @@ import com.ntetz.android.aboutme.databinding.ActivityMainBinding
 
 class MainBindingBuilder(private val mainBinding: ActivityMainBinding,
                          private val activity: AppCompatActivity) : BindingBuilder {
-    override fun initialize() {
+    override fun bindText() {
         val name = this.activity.getString(R.string.name_nishikawa_tetsuya)
         this.mainBinding.myName = MyName(name)
+
+    }
+
+    override fun bindAction() {
         this.mainBinding.doneButton.setOnClickListener {
-            this.addNickName(it)
+            this.applyNickName()
+            this.closeKeyboard(it)
         }
     }
 
-    private fun addNickName(view: View) {
+    private val applyNickName: () -> Unit = {
         mainBinding.apply {
             this.myName?.nickname = nicknameEdit.text.toString()
             this.invalidateAll()
@@ -24,7 +29,9 @@ class MainBindingBuilder(private val mainBinding: ActivityMainBinding,
             this.doneButton.visibility = View.GONE
             this.nicknameText.visibility = View.VISIBLE
         }
+    }
+    private val closeKeyboard: (View) -> Unit = {
         val imn = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imn.hideSoftInputFromWindow(view.windowToken, 0)
+        imn.hideSoftInputFromWindow(it.windowToken, 0)
     }
 }
