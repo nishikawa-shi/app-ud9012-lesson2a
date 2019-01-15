@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.myName = MyName("Tetsuya Nishikawa")
+        binding.myName = MyName(getString(R.string.name_nishikawa_tetsuya))
 
         binding.doneButton.setOnClickListener {
             this.addNickName(it)
