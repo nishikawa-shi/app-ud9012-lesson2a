@@ -7,11 +7,10 @@ import com.ntetz.android.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private val binding: ActivityMainBinding by lazy {DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val builder = MainBindingBuilder(binding, this)
         BindingDirector(builder).initialize()
